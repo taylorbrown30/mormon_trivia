@@ -1,0 +1,17 @@
+#new_game_button{
+    margin-bottom: 20px;
+}
+.panel {
+    color:black;
+}
+
+.score_td{
+    text-align: center;
+
+}
+.you_td{
+    border-right-style: solid;
+    border-right-color: #DDDDDD;
+    border-right-width: thin;
+    border-collapse: separate;
+}

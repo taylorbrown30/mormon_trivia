@@ -1,0 +1,19 @@
+<%inherit file="base_ajax.htm" />
+
+<%block name="content">
+
+
+    <div class="well">
+        <div style="display: none;" id="answered_correct" class="center-block message"><img src="${ STATIC_URL}trivia/media/text-correct.png"></div>
+        <div style="display: none;" id="answered_incorrect" class="message"><img src="${ STATIC_URL}trivia/media/text-incorrect.png"></div>
+
+        <h3>${question.question}</h3>
+    </div>
+
+    <h4><button class="answer_button btn btn-lg btn-default btn-block" game_id="${game_id}" id="a" question="${question.id}" category="${category_id}">${question.answer_a}</button></h4>
+    <h4><button class="answer_button btn btn-lg btn-default btn-block" game_id="${game_id}" id="b" question="${question.id}" category="${category_id}">${question.answer_b}</button></h4>
+    <h4><button class="answer_button btn btn-lg btn-default btn-block" game_id="${game_id}" id="c" question="${question.id}" category="${category_id}">${question.answer_c}</button></h4>
+    <h4><button class="answer_button btn btn-lg btn-default btn-block" game_id="${game_id}" id="d" question="${question.id}" category="${category_id}">${question.answer_d}</button></h4>
+    <button style="display: none;" class="btn btn-lg btn-success btn-block" id="continue_button" >Continue</button>
+
+</%block>

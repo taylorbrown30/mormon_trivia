@@ -1,0 +1,21 @@
+<%inherit file="base_ajax.htm" />
+
+<%block name="content">
+
+<div class="row">
+  <div class="col-xs-4"><h3>${user.get_full_name()}</h3></div>
+  <div class="col-xs-4"><h3 class="center_text">vs</h3></div>
+  <div class="col-xs-4"><h3 class="center_text">${opponent.get_full_name()}</h3></div>
+</div>
+<div class="row">
+  <div class="col-xs-4"><h3 class="center_text"> <i class="fa fa-circle"></i> <i class="fa fa-circle-o"></i> <i class="fa fa-circle-o"></i> <i class="fa fa-circle-o"></i></h3></div>
+  <div class="col-xs-4"></div>
+  <div class="col-xs-4"><h3 class="center_text"> <i class="fa fa-circle"></i> <i class="fa fa-circle-o"></i> <i class="fa fa-circle-o"></i> <i class="fa fa-circle-o"></i></h3></div>
+</div>
+<h3 class="center_text">Choose Category</h3>
+
+<button class="btn btn-lg btn-success btn-block" id="play_button" data-game_id="${game_id}" >Play!</button>
+
+
+</%block>
+

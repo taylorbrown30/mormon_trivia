@@ -1,0 +1,9 @@
+.profile_pics {
+    border-radius: 50%;
+    height: 40px;
+    /*margin-top: 5px;*/
+}
+
+#friends_table{
+    color: black;
+}

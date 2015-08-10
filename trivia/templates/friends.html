@@ -1,0 +1,21 @@
+<%inherit file="base_ajax.htm" />
+
+<%block name="content">
+
+
+<div class="panel panel-success">
+    <div class="panel-heading">Choose a friend</div>
+    <table class="table table-hover" id="friends_table">
+        %for f in friends['data']:
+        <tr>
+            <td><img src="${f['picture']['data']['url']}" class="profile_pics"></td>
+            <td>${f['name']}</td>
+            <td><button  class="btn btn-success play_friend_button" id="${f['id']}" >Play!</button></td>
+        </tr>
+        %endfor
+
+    </table>
+</div>
+
+</%block>
+

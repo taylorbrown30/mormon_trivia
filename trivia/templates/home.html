@@ -1,0 +1,129 @@
+<%inherit file="base_ajax.htm" />
+
+
+<%block name="content">
+
+
+<button class="btn btn-lg btn-success btn-block"  id="new_game_button">New Game</button>
+
+<div class="panel panel-danger">
+    <div class="panel-heading">Your Turn</div>
+
+    <table class="table table-hover" data-show-header="false">
+        %for g in my_turn:
+            <tr>
+                <td>${g.opponent_game.player.get_full_name()}<br/>Round ${g.current_round}</td>
+                <td class="score_td you_td">
+                    <%
+                        i = 0
+                        if g.category_1:
+                          i += 1
+                        if g.category_2:
+                              i += 1
+                        if g.category_3:
+                              i += 1
+                        if g.category_4:
+                              i += 1
+                    %>
+                    <%
+                        x = 0
+                        if g.opponent_game.category_1:
+                          x += 1
+                        if g.opponent_game.category_2:
+                              x += 1
+                        if g.opponent_game.category_3:
+                              x += 1
+                        if g.opponent_game.category_4:
+                              x += 1
+                    %>
+                    You <br/>${i}
+                </td>
+                <td class="score_td ">Opponent <br/>${x}</td>
+                <td><button  class="btn btn-success play_game_button" id="${g.id}" >Play!</button></td>
+            </tr>
+        %endfor
+    </table>
+</div>
+<div class="panel panel-info">
+    <div class="panel-heading">Their Turn</div>
+    <table class="table table-hover">
+        %for g in their_turn:
+            <tr>
+                <td>${g.opponent_game.player.get_full_name()}<br/>Round ${g.current_round}</td>
+                <td class="score_td you_td">
+                    <%
+                        i = 0
+                        if g.category_1:
+                          i += 1
+                        if g.category_2:
+                              i += 1
+                        if g.category_3:
+                              i += 1
+                        if g.category_4:
+                              i += 1
+                    %>
+                    <%
+                        x = 0
+                        if g.opponent_game.category_1:
+                          x += 1
+                        if g.opponent_game.category_2:
+                              x += 1
+                        if g.opponent_game.category_3:
+                              x += 1
+                        if g.opponent_game.category_4:
+                              x += 1
+                    %>
+                    You <br/>${i}
+                </td>
+                <td class="score_td ">Opponent <br/>${x}</td>
+            </tr>
+        %endfor
+    </table>
+</div>
+<div class="panel panel-success">
+    <div class="panel-heading">Finished Games</div>
+    <table class="table table-hover">
+        %for g in finished_games:
+            <tr>
+                <td>${g.opponent_game.player.get_full_name()}<br/>Round ${g.current_round}</td>
+                <td>
+                    %if g.win_loss:
+                        You Won!
+                    %else:
+                        You Lost!
+                    %endif
+                </td>
+                <td class="score_td you_td">
+                    <%
+                        i = 0
+                        if g.category_1:
+                          i += 1
+                        if g.category_2:
+                              i += 1
+                        if g.category_3:
+                              i += 1
+                        if g.category_4:
+                              i += 1
+                    %>
+                    <%
+                        x = 0
+                        if g.opponent_game.category_1:
+                          x += 1
+                        if g.opponent_game.category_2:
+                              x += 1
+                        if g.opponent_game.category_3:
+                              x += 1
+                        if g.opponent_game.category_4:
+                              x += 1
+                    %>
+                   You <br/>${i}
+                </td>
+                <td class="score_td ">Opponent <br/>${x}</td>
+
+            </tr>
+        %endfor
+    </table>
+</div>
+
+
+</%block>

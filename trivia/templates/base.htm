@@ -1,0 +1,43 @@
+## this is the skeleton of all pages on in this app - it defines the basic html tags
+
+## set up a StaticRenderer object to enable the CSS/JS automatic inclusion magic.
+<%! from django_mako_plus.controller import static_files %>
+<%  static_renderer = static_files.StaticRenderer(self) %>
+
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<head>
+
+    <title>Mormon Trivia!</title>
+
+    ## add any site-wide scripts or CSS here; for example, jquery:
+    <script src="${ STATIC_URL}trivia/scripts/jquery.min.js"></script>
+
+    <script src="${ STATIC_URL}trivia/scripts/bootstrap.min.js"></script>
+    <!-- History.js -->
+    <script src="//browserstate.github.io/history.js/scripts/bundled/html4+html5/jquery.history.js"></script>
+
+    <link href="${ STATIC_URL }trivia/styles/bootstrap.min.css" rel="stylesheet">
+    ## render the css with the same name as this page
+    ${ static_renderer.get_template_css(request, context)  }
+
+
+</head>
+<body>
+
+<header>
+</header>
+    <%block name="navbar">
+
+    </%block>
+<%block name="content">
+Site content goes here in sub-templates.
+</%block>
+
+
+## render the JS with the same name as this page
+${ static_renderer.get_template_js(request, context)  }
+
+</body>
+</html>

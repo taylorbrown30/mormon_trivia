@@ -1,0 +1,26 @@
+<%inherit file="base_ajax.htm" />
+
+<%block name="content">
+
+<h3 class="center_text">Choose what to play!</h3>
+
+<div class="row">
+    <div class="col-xs-6">
+        <button class="btn btn-lg btn-success btn-block category_button" id="${categories[0].id}" data-game_id="${game_id}"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> ${categories[0].name}</button>
+    </div>
+    <div class="col-xs-6">
+        <button class="btn btn-lg btn-success btn-block category_button" id="${categories[1].id}" data-game_id="${game_id}">${categories[1].name}</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-6">
+        <button class="btn btn-lg btn-success btn-block category_button" id="${categories[2].id}" data-game_id="${game_id}">${categories[2].name}</button>
+    </div>
+    <div class="col-xs-6">
+        <button class="btn btn-lg btn-success btn-block category_button" id="${categories[3].id}" data-game_id="${game_id}">${categories[3].name}</button>
+    </div>
+</div>
+
+
+</%block>
+

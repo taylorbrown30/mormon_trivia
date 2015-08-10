@@ -1,0 +1,59 @@
+<%inherit file="base.htm" />
+<%block name="navbar">
+<div  id="top_bar">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+
+                <a class="top_bar_item_left" href="trivia"><img alt="Brand" src="${STATIC_URL}trivia/media/logo.svg" id="brand_image"></a>
+                <p class="top_bar_item_left" id="app_title"><a href="trivia" id="app_title_link">Mormon Trivia</a></p>
+
+                %if user.is_authenticated():
+
+                    <div class="dropdown top_bar_item_right top_bar_text">
+                        <a id="name_link" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">${ user.get_full_name()} <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li></li>
+                            <li><a href="#">Help</a></li>
+                            <li><a href="#">Account</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/logout/?next=${ request.path }">Logout</a></li>
+
+                        </ul>
+                    </div>
+                 <a class="top_bar_item_right"></a><img src="${picture_url}" id="profile_pic"></a>
+
+                %else:
+
+                <p class="top_bar_item_right top_bar_text"><a href="/login/facebook/?next=${ request.path }">Login with Facebook</a></p>
+
+                %endif
+            </div>
+        </div>
+    </div>
+</div>
+
+</%block>
+<%block name="content">
+
+<div class="container-fluid"><div class="loading loader"></div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+
+
+
+            <div class="panel panel-default">
+
+                <div class="panel-body" id="game_panel">
+                    <div class="loader loader_wheel">Loading...</div>
+                    <div id="panel_contents">
+
+                    </div>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+</div>
+
+</%block>
