@@ -1,6 +1,7 @@
 #panel_contents{
     padding: 15px;
 }
+
 .message{
     position: fixed;
     left: 50%;
@@ -68,7 +69,8 @@
 #app_title_link{
     font-size: 20px;
     font-weight: bold;
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: 'Rammetto One', cursive;
+    line-height: normal;
     color: black;
 }
 #app_title_link:hover, #name_link:hover {
@@ -76,7 +78,8 @@
     color: white;
 }
 #name_link{
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-weight: 700;
     color: black;
 }
 #game_panel{

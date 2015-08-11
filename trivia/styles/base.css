@@ -1,5 +1,17 @@
 body {
     padding-top: 50px;
-    font-family: "Comic Sans MS", cursive, sans-serif;
-    color: white;
+    /*font-family: "Comic Sans MS", cursive, sans-serif;*/
+    /*color: white;*/
+}
+
+
+.btn {
+    font-family: 'Rammetto One', cursive;
+}
+.panel-heading{
+    font-family: 'Rammetto One', cursive;
+}
+
+table{
+    font-family: Tahoma, Geneva, sans-serif;
 }
