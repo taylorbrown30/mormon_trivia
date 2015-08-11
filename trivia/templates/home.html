@@ -95,9 +95,9 @@
                 <td>${g.opponent_game.player.get_full_name()}<br/>Round ${g.current_round}</td>
                 <td>
                     %if g.win_loss:
-                        You Won!
+                        <p id="you_won">You Won!</p>
                     %else:
-                        You Lost!
+                        <p id="you_lost">You </p>
                     %endif
                 </td>
                 <td class="score_td you_td">

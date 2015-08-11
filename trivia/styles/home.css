@@ -15,3 +15,10 @@
     border-right-width: thin;
     border-collapse: separate;
 }
+
+#you_won{
+    color: green;
+}
+#you_lost{
+    color: firebrick;
+}

@@ -1,3 +1,11 @@
-*{
-    color: black;
+
+#question_text{
+    font-family: Tahoma, Geneva, sans-serif;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.answer_button{
+    font-family: Tahoma, Geneva, sans-serif;
+    color: #444444;
 }
