@@ -26,14 +26,14 @@ $(function() {
     });
 
     $("#continue_button").click(function() {
-        $('.loader').show()
+        $('.loader').show();
 
         if(answer_result == "correct"){
-            History.pushState({url:"index.category"}, "", "");
+
             $.ajax({
                 url: "trivia/index.category/"+game ,
                 success: function (result) {
-                    $('.loader').hide()
+                    $('.loader').hide();
                     $("#panel_contents").html(result)
                 }
             });
@@ -45,25 +45,11 @@ $(function() {
                     $("#panel_contents").html(result)
                 }
             });
-        }else if(answer_result== "completed_category") {
+        }else if(answer_result== "won_game") {
             History.pushState({url:"index.home"}, "", "");
-            $.ajax({
-                url: "trivia/index.home",
-                success: function (result) {
-                    $('.loader').hide();
-                    $("#panel_contents").html(result)
-                }
-            });
         }
         else if(answer_result== "incorrect") {
             History.pushState({url:"index.home"}, "", "");
-            $.ajax({
-                url: "trivia/index.home",
-                success: function (result) {
-                    $('.loader').hide();
-                    $("#panel_contents").html(result)
-                }
-            });
         }
     });
 });

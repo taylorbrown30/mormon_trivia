@@ -1,7 +1,7 @@
 
 $(".category_button").click(function() {
-    $('.loader').show()
-	History.pushState({url:"index.question"}, "", "");
+
+    History.pushState({url:null}, "", "");
     var game_id= $(this).attr("data-game_id");
     var category_id = $(this).attr("id");
 	$.ajax({

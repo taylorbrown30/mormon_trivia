@@ -86,13 +86,11 @@ def create_game(request):
     g.save()
     g2.save()
 
-    return HttpResponseRedirect("/trivia/index.category/"+str(g.id))
-    # template_vars = {
-    #     "opponent": opponent,
-    #     "user": user,
-    #
-    # }
-    # return dmp_render_to_response(request, 'category.html', template_vars)
+    import json
+    data = {'success' : True, 'id' : str(g.id)}
+    return HttpResponse( json.dumps( data ) )
+
+
 @view_function
 def category(request):
     user = request.user
@@ -230,7 +228,7 @@ def check_answer(request):
                 game.opponent_game.my_turn=False
                 game.opponent_game.save()
                 game.save()
-                return HttpResponse('completed_category')
+                return HttpResponse('won_game')
 
         return HttpResponse('correct')
     else:
