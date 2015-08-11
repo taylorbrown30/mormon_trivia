@@ -6,6 +6,7 @@
 
 <button class="btn btn-lg btn-success btn-block"  id="new_game_button">New Game</button>
 
+%if my_turn:
 <div class="panel panel-danger">
     <div class="panel-heading">Your Turn</div>
 
@@ -44,6 +45,9 @@
         %endfor
     </table>
 </div>
+%endif
+
+%if your_turn:
 <div class="panel panel-info">
     <div class="panel-heading">Their Turn</div>
     <table class="table table-hover">
@@ -80,6 +84,9 @@
         %endfor
     </table>
 </div>
+%endif
+
+%if finished_games:
 <div class="panel panel-success">
     <div class="panel-heading">Finished Games</div>
     <table class="table table-hover">
@@ -124,6 +131,7 @@
         %endfor
     </table>
 </div>
+%endif
 
 
 </%block>

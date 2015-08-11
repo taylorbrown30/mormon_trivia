@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1439251098.45259
+_modified_time = 1439252680.568348
 _enable_loop = True
 _template_filename = 'C:\\Users\\Taylor\\Desktop\\mormon_trivia\\trivia\\templates/base.htm'
 _template_uri = 'base.htm'
@@ -33,7 +33,7 @@ def render_body(context,**pageargs):
         
         __M_locals_builtin_stored = __M_locals_builtin()
         __M_locals.update(__M_dict_builtin([(__M_key, __M_locals_builtin_stored[__M_key]) for __M_key in ['static_renderer'] if __M_key in __M_locals_builtin_stored]))
-        __M_writer('\r\n\r\n<!DOCTYPE html>\r\n<html>\r\n<meta charset="UTF-8">\r\n<head>\r\n\r\n    <title>Mormon Trivia!</title>\r\n\r\n')
+        __M_writer('\r\n\r\n<!DOCTYPE html>\r\n<html>\r\n<meta charset="UTF-8">\r\n<head>\r\n    <meta charset="utf-8">\r\n    <meta http-equiv="X-UA-Compatible" content="IE=edge">\r\n    <meta name="viewport" content="width=device-width, initial-scale=1">\r\n\r\n    <title>Mormon Trivia!</title>\r\n\r\n')
         __M_writer('    <script src="')
         __M_writer(str( STATIC_URL))
         __M_writer('trivia/scripts/jquery.min.js"></script>\r\n\r\n    <script src="')
@@ -87,6 +87,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"uri": "base.htm", "filename": "C:\\Users\\Taylor\\Desktop\\mormon_trivia\\trivia\\templates/base.htm", "line_map": {"64": 32, "70": 32, "76": 35, "16": 4, "18": 0, "88": 82, "30": 2, "31": 4, "32": 5, "36": 5, "37": 15, "38": 15, "39": 15, "40": 17, "41": 17, "42": 21, "43": 21, "44": 24, "45": 24, "46": 24, "51": 34, "82": 35, "56": 37, "57": 41, "58": 41}, "source_encoding": "utf-8"}
+{"uri": "base.htm", "filename": "C:\\Users\\Taylor\\Desktop\\mormon_trivia\\trivia\\templates/base.htm", "line_map": {"64": 35, "70": 35, "76": 38, "16": 4, "18": 0, "88": 82, "30": 2, "31": 4, "32": 5, "36": 5, "37": 18, "38": 18, "39": 18, "40": 20, "41": 20, "42": 24, "43": 24, "44": 27, "45": 27, "46": 27, "51": 37, "82": 38, "56": 40, "57": 44, "58": 44}, "source_encoding": "utf-8"}
 __M_END_METADATA
 """

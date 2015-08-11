@@ -1,13 +1,10 @@
-#panel_contents{
-    padding: 15px;
-}
 
 .message{
     position: fixed;
     left: 50%;
     margin-left: -200px;
 }
-#top_bar{
+#top_bar_outer{
     margin-left: auto;
     margin-right: auto;
     height: 51px;
@@ -17,6 +14,61 @@
     top: 0px;
     z-index: 1000;
 }
+#top_bar_inner{
+    width: 750px;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+html, body, #main_content_outer {
+    	height: 100%;
+		/*margin: 0px;*/
+	}
+#main_content_inner{
+    width: 750px;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#game_panel{
+    /*TODO Fix this for small screens*/
+    height: 100%;
+    padding-right: 50px;
+    padding-left: 50px;
+    background-color: #434851;
+}
+#panel_contents{
+    padding-top: 15px;
+}
+#app_title_link_mtc{
+    display: none;
+}
+
+@media (max-width: 800px) {
+    #main_content_inner, #top_bar_inner{
+        width:100%;
+    }
+}
+@media (max-width: 650px) {
+    #game_panel{
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+@media (max-width: 500px) {
+    #game_panel{
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    #app_title_link{
+        display: none;
+    }
+    #app_title_link_mtc{
+        display: block;
+}
+}
+
 .top_bar_item_left{
     float:left;
 }
@@ -27,29 +79,29 @@
 .top_bar_item_right{
     float:right;
 }
-@media (max-width: 1000px) {
-    #top_bar{
-        /*margin-left: 20px;*/
-        /*margin-right: 20px;*/
-    }
-}
-@media (max-width: 1200px) {
-    #game_panel {
-        padding-right: 50px !important;
-        padding-left: 50px !important;
-    }
+/*@media (max-width: 1000px) {*/
+    /*#top_bar{*/
+        /*/!*margin-left: 20px;*!/*/
+        /*/!*margin-right: 20px;*!/*/
+    /*}*/
+/*}*/
+/*@media (max-width: 1200px) {*/
+    /*#game_panel {*/
+        /*padding-right: 50px !important;*/
+        /*padding-left: 50px !important;*/
+    /*}*/
 
-}@media (max-width: 600px) {
-    #game_panel {
-        padding-right: 15px !important;
-        padding-left: 15px !important;
-        margin-left: -16px !important;
-        margin-right: -16px!important;
-    }
-    #app_title{
-        display: none;
-    }
-}
+/*}@media (max-width: 600px) {*/
+    /*#game_panel {*/
+        /*padding-right: 15px !important;*/
+        /*padding-left: 15px !important;*/
+        /*margin-left: -16px !important;*/
+        /*margin-right: -16px!important;*/
+    /*}*/
+    /*#app_title{*/
+        /*display: none;*/
+    /*}*/
+/*}*/
 
 #profile_pic {
     border-radius: 50%;
@@ -66,14 +118,14 @@
     margin: 5px;
     margin-top: 9px;
 }
-#app_title_link{
+#app_title_link, #app_title_link_mtc{
     font-size: 20px;
     font-weight: bold;
     font-family: 'Rammetto One', cursive;
     line-height: normal;
     color: black;
 }
-#app_title_link:hover, #name_link:hover {
+#app_title_link:hover, #name_link:hover, #app_title_link_mtc:hover{
     text-decoration: none;
     color: white;
 }
@@ -82,13 +134,9 @@
     font-weight: 700;
     color: black;
 }
-#game_panel{
-    /*TODO Fix this for small screens*/
-    min-height: 500px;
-    padding-right: 100px;
-    padding-left: 100px;
-    background-color: #434851;
-}
+
+
+
 /*************** Panel Custom Colors*********************/
 
 .panel-info>.panel-heading{
