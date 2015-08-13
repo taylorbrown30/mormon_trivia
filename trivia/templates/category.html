@@ -2,18 +2,27 @@
 
 <%block name="content">
 
-<div class="row">
-  <div class="col-xs-4"><div class="name_panel"><h4>${user.get_full_name()}</h4></div></div>
-  <div class="col-xs-4"><h4 class="center_text">vs</h4></div>
-  <div class="col-xs-4"><div class="name_panel"><h4>${opponent.get_full_name()}</h4></div></div>
-</div>
-<div class="row">
-  <div class="col-xs-4"><h3 class="center_text"> <i class="fa fa-circle"></i> <i class="fa fa-circle-o"></i> <i class="fa fa-circle-o"></i> <i class="fa fa-circle-o"></i></h3></div>
-  <div class="col-xs-4"></div>
-  <div class="col-xs-4"><h3 class="center_text"> <i class="fa fa-circle"></i> <i class="fa fa-circle-o"></i> <i class="fa fa-circle-o"></i> <i class="fa fa-circle-o"></i></h3></div>
-</div>
+<div class="outer_name_div">
+    <div class="player_div">
+            <img src="${user.player.picture_url}" class="profile_pics">
+        <div id="name_score_div">
+            <h4 id="player_name">${user.get_full_name()}</h4>
+           <br/> <span class="score"><i class="fa fa-circle fa-2x"></i> <i class="fa fa-circle-o fa-2x"></i> <i class="fa fa-circle-o fa-2x"></i> <i class="fa fa-circle-o fa-2x"></i></span>
+        </div>
+    </div>
+    <div class="vs_div"><h4 class="center_text">vs</h4></div>
+    <div class="opponent_div">
+        <div id="name_score_div">
+            <h4 id="player_name">${opponent.get_full_name()}</h4>
+            <br/><span class="score"><i class="fa fa-circle fa-2x"></i> <i class="fa fa-circle-o fa-2x"></i> <i class="fa fa-circle-o fa-2x"></i> <i class="fa fa-circle-o fa-2x"></i></span>
+        </div>
 
+            <img src="${opponent.player.picture_url}" class="profile_pics">
+    </div>
+</div>
+<hr id="line">
 
+<br/>
 <h3 class="center_text">Choose Category</h3>
 <br/><br/>
 <h4 class="center_text">Book of Mormon</h4>

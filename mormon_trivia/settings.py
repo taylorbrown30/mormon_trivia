@@ -107,6 +107,19 @@ SOCIAL_AUTH_FACEBOOK_SECRET = "f5f3e57c5b32cd08390103a5507f85f1"
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_friends']
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {'locale': 'ru_RU', 'debug': 'all'}
 
+SOCIAL_AUTH_PIPELINE = (
+    'social.pipeline.social_auth.social_details',
+    'social.pipeline.social_auth.social_uid',
+    'social.pipeline.social_auth.auth_allowed',
+    'social.pipeline.social_auth.social_user',
+    'social.pipeline.user.get_username',
+    'social.pipeline.user.create_user',
+    'trivia.models.save_profile',  # <--- set the path to the function
+    'social.pipeline.social_auth.associate_user',
+    'social.pipeline.social_auth.load_extra_data',
+    'social.pipeline.user.user_details'
+)
+
 # TEMPLATE_CONTEXT_PROCESSORS = (
 #     'django.contrib.auth.context_processors.auth',
 #     'django.core.context_processors.debug',

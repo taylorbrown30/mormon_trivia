@@ -4,16 +4,19 @@
 .panel {
     color:black;
 }
-
+.play_game_button{
+    margin-top: 4px;
+}
+#button_td{
+    width: 88px;
+}
 .score_td{
     text-align: center;
 
 }
 .you_td{
-    border-right-style: solid;
-    border-right-color: #DDDDDD;
-    border-right-width: thin;
-    border-collapse: separate;
+  white-space: nowrap;
+    text-align: right;
 }
 
 #you_won{
@@ -21,4 +24,37 @@
 }
 #you_lost{
     color: firebrick;
+}
+
+.score_div{
+    text-align: center;
+   display: inline-block;
+    color: grey;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.you_div{
+    border-right-style: solid;
+    border-right-color: #DFDFDF;
+    border-right-width: 2px;
+}
+
+.profile_pics {
+    border-radius: 50%;
+    height: 40px;
+    display: inline-block;
+    vertical-align: top;
+    /*margin-top: 5px;*/
+}
+#outside_name{
+    display: inline-block;
+
+}
+.name_div{
+    /*display: inline-block;*/
+}
+.round_div{
+    color: #ff8400;
+    /*display: inline-block;*/
 }

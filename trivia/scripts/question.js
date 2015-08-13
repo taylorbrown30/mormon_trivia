@@ -12,7 +12,8 @@ $(function() {
             data: game_data,
             success: function (result) {
                 answer_result=result;
-                $(".answer_button").hide();
+                //$(".answer_button").hide();
+                $(".answer_button").css("visibility", "hidden");
                 $("#continue_button").show();
                 if(result == "correct"){
                     $("#answered_correct").show();

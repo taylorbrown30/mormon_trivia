@@ -13,7 +13,14 @@
     <table class="table table-hover" data-show-header="false">
         %for g in my_turn:
             <tr>
-                <td>${g.opponent_game.player.get_full_name()}<br/>Round ${g.current_round}</td>
+                <td>
+                    <img src="${g.opponent_game.player.player.picture_url}" class="profile_pics">
+                    <div id="outside_name">
+                        <div class="name_div">${g.opponent_game.player.get_full_name()}</div>
+                    <div class="round_div">Round ${g.current_round}</div>
+                    </div>
+
+                </td>
                 <td class="score_td you_td">
                     <%
                         i = 0
@@ -37,23 +44,25 @@
                         if g.opponent_game.category_4:
                               x += 1
                     %>
-                    You <br/>${i}
+
+                    <div class="score_div you_div">You <br/>${i}</div>
+                    <div class="score_div">Rival <br/>${x}</div>
                 </td>
-                <td class="score_td ">Opponent <br/>${x}</td>
-                <td><button  class="btn btn-success play_game_button" id="${g.id}" >Play!</button></td>
+
+                <td id="button_td"><button  class="btn btn-success play_game_button" id="${g.id}" >Play!</button></td>
             </tr>
         %endfor
     </table>
 </div>
 %endif
 
-%if your_turn:
+%if thir_turn:
 <div class="panel panel-info">
     <div class="panel-heading">Their Turn</div>
     <table class="table table-hover">
         %for g in their_turn:
             <tr>
-                <td>${g.opponent_game.player.get_full_name()}<br/>Round ${g.current_round}</td>
+                <td>${g.opponent_game.player.get_full_name()}<br/><p class="round_para">Round ${g.current_round}</p></td>
                 <td class="score_td you_td">
                     <%
                         i = 0
@@ -77,9 +86,10 @@
                         if g.opponent_game.category_4:
                               x += 1
                     %>
-                    You <br/>${i}
+                    <div class="score_div you_div">You <br/>${i}</div>
+                    <div class="score_div">Rival <br/>${x}</div>
                 </td>
-                <td class="score_td ">Opponent <br/>${x}</td>
+
             </tr>
         %endfor
     </table>
@@ -92,7 +102,7 @@
     <table class="table table-hover">
         %for g in finished_games:
             <tr>
-                <td>${g.opponent_game.player.get_full_name()}<br/>Round ${g.current_round}</td>
+                <td>${g.opponent_game.player.get_full_name()}<br/><p>Round ${g.current_round}</p></td>
                 <td>
                     %if g.win_loss:
                         <p id="you_won">You Won!</p>
@@ -101,6 +111,7 @@
                     %endif
                 </td>
                 <td class="score_td you_td">
+
                     <%
                         i = 0
                         if g.category_1:
@@ -123,9 +134,13 @@
                         if g.opponent_game.category_4:
                               x += 1
                     %>
-                   You <br/>${i}
+
+
+                    <div class="score_div you_div">You <br/>${i}</div>
+                    <div class="score_div">Rival <br/>${x}</div>
+
                 </td>
-                <td class="score_td ">Opponent <br/>${x}</td>
+
 
             </tr>
         %endfor

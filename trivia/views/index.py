@@ -1,3 +1,4 @@
+import datetime
 from django.conf import settings
 from django_mako_plus.controller import view_function
 from .. import dmp_render, dmp_render_to_response
@@ -36,14 +37,15 @@ def home(request):
 
     user = request.user
 
+    print(user.player.picture_url)
     games = Game.objects.filter(player=user)
-    finished_games = games.filter(finished=True)
-    my_turn =  games.exclude(finished=True).filter(my_turn=True)
-    their_turn = games.exclude(finished=True).filter(my_turn=False)
+    finished_games = games.filter(finished=True)[:10]
+    my_turn =  games.exclude(finished=True).filter(my_turn=True)[:10]
+    their_turn = games.exclude(finished=True).filter(my_turn=False)[:10]
 
     print("finsied games:", finished_games)
     print("myturn:", my_turn)
-    print("thier_turn:", their_turn)
+    print("their_turn:", their_turn)
 
     template_vars = {
         'their_turn': their_turn,
@@ -74,6 +76,7 @@ def create_game(request):
 
     g = Game()
     g.player = user
+    g.my_turn = True
     g.save()
 
     g2 = Game()
@@ -223,9 +226,11 @@ def check_answer(request):
                 game.finished = True
                 game.win_loss = True
                 game.my_turn=False
+                game.finished_date= datetime.datetime.now()
                 game.opponent_game.win_loss = False
                 game.opponent_game.finished = True
                 game.opponent_game.my_turn=False
+                game.opponent_game.finished_date= datetime.datetime.now()
                 game.opponent_game.save()
                 game.save()
                 return HttpResponse('won_game')

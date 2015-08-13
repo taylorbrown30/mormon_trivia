@@ -1,9 +1,23 @@
 .profile_pics {
     border-radius: 50%;
     height: 40px;
+    display: inline-block;
+
     /*margin-top: 5px;*/
 }
 
 #friends_table{
     color: black;
+}
+
+#button_td{
+    text-align: right;
+}
+#name_td{
+    text-align: left;
+}
+#name_p{
+    margin-top: 5px;
+    margin-left: 5px;
+    display: inline-block;
 }
