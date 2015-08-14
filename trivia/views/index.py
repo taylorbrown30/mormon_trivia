@@ -114,7 +114,7 @@ def category(request):
     template_vars = {
         "opponent": opponent,
         "user": user,
-        "game_id":game.id,
+        "game":game,
     }
     return dmp_render_to_response(request, 'category.html', template_vars)
 

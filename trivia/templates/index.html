@@ -9,7 +9,7 @@
             %if user.is_authenticated():
 
             <div class="dropdown top_bar_item_right top_bar_text">
-                <a id="name_link" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">${ user.get_full_name()} <span class="caret"></span></a>
+                <a id="name_link" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">${ user.first_name} <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li></li>
                     <li><a href="#">Help</a></li>

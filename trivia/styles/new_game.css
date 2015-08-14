@@ -6,3 +6,15 @@
     /*font: 700 26px Brandon,Helvetica,Arial,sans-serif;*/
     margin-bottom: 30px;
 }
+
+.friend_div{
+        display: inline-block;
+    width: 48%;
+
+}
+.random_div{
+    display: inline-block;
+        width: 48%;
+    margin-left: 7px;
+
+}

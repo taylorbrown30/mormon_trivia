@@ -4,20 +4,32 @@
 
 <div class="outer_name_div">
     <div class="player_div">
-            <img src="${user.player.picture_url}" class="profile_pics">
+        <img src="${user.player.picture_url}" class="profile_pics">
         <div id="name_score_div">
-            <h4 id="player_name">${user.get_full_name()}</h4>
-           <br/> <span class="score"><i class="fa fa-circle fa-2x"></i> <i class="fa fa-circle-o fa-2x"></i> <i class="fa fa-circle-o fa-2x"></i> <i class="fa fa-circle-o fa-2x"></i></span>
+            <h4 id="player_name">${user.first_name}</h4>
+            <br/>
+            <span class="score">
+                <i id="a" class="fa fa-book fa-2x"></i>
+                <i id="b" class="fa fa-history fa-2x"></i>
+                <i id="c" class="fa fa-globe fa-2x"></i>
+                <i id="d" class="fa fa-black-tie fa-2x"></i>
+            </span>
         </div>
     </div>
     <div class="vs_div"><h4 class="center_text">vs</h4></div>
     <div class="opponent_div">
         <div id="name_score_div">
-            <h4 id="player_name">${opponent.get_full_name()}</h4>
-            <br/><span class="score"><i class="fa fa-circle fa-2x"></i> <i class="fa fa-circle-o fa-2x"></i> <i class="fa fa-circle-o fa-2x"></i> <i class="fa fa-circle-o fa-2x"></i></span>
+            <h4 id="player_name">${opponent.first_name}</h4>
+            <br/>
+            <span class="score">
+                <i id="e" class="fa fa-book fa-2x"></i>
+                <i id="f" class="fa fa-history fa-2x"></i>
+                <i id="g" class="fa fa-globe fa-2x"></i>
+                <i id="h" class="fa fa-black-tie fa-2x"></i>
+        </span>
         </div>
 
-            <img src="${opponent.player.picture_url}" class="profile_pics">
+        <img src="${opponent.player.picture_url}" class="profile_pics">
     </div>
 </div>
 <hr id="line">
@@ -32,7 +44,7 @@
 <br/>
 <br/>
 
-<button class="btn btn-lg btn-success btn-block" id="play_button" data-game_id="${game_id}" >Play!</button>
+<button class="btn btn-lg btn-success btn-block" id="play_button" data-game_id="${game.id}" >Play!</button>
 
 
 </%block>
