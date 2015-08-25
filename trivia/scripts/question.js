@@ -13,13 +13,18 @@ $(function() {
             success: function (result) {
                 answer_result=result;
                 //$(".answer_button").hide();
-                $(".answer_button").css("visibility", "hidden");
+                //$(".answer_button").css("visibility", "hidden");
+                $(".answer_button").addClass("disappear");
+
                 $("#continue_button").show();
-                if(result == "correct"){
+                $("#continue_button").addClass("appear_button");
+
+                if(result == "correct" || result == "won_game" || result == "category"){
+                    $("#answered_correct").addClass("appear_message");
                     $("#answered_correct").show();
-                    console.log($("#answered_correct"));
                 }
                 else if(result== "incorrect"){
+                    $("#answered_incorrect").addClass("appear_message");
                     $("#answered_incorrect").show()
                 }
             }

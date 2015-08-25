@@ -7,12 +7,6 @@
 .play_game_button{
     margin-top: 4px;
 }
-.play_game_button:focus{
-    background-color: red;
-}
-.play_game_button:active{
-    background-color: purple;
-}
 #button_td{
     width: 88px;
 }

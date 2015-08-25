@@ -9,3 +9,20 @@
     font-family: Tahoma, Geneva, sans-serif;
     color: #444444;
 }
+
+.disappear{
+    transition:visibility 1s, opacity 1s;
+    visibility:hidden;
+    opacity:0
+
+}
+.appear_button{
+    transition:visibility 1s 1s, opacity 1s 1s;
+    visibility: visible;
+    opacity:1
+}
+.appear_message{
+    transition:visibility 1s, opacity 1s;
+    visibility: visible;
+    opacity:1
+}

@@ -1,8 +1,19 @@
-
+#gauge{
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
 #play_button{
+    display: none;
     /*margin: 10px;*/
+    z-index: 2001;
+    position:fixed;
+    width: inherit;
 }
 
+#outer_gauge{
+    text-align: center;
+}
 
 .center_text{
     text-align: center;

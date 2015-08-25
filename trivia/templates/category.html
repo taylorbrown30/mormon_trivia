@@ -12,7 +12,7 @@
                 <i id="a" class="fa fa-book fa-2x"></i>
                 <i id="b" class="fa fa-history fa-2x"></i>
                 <i id="c" class="fa fa-globe fa-2x"></i>
-                <i id="d" class="fa fa-black-tie fa-2x"></i>
+                <i id="d" class="fa fa-male fa-2x"></i>
             </span>
         </div>
     </div>
@@ -25,7 +25,7 @@
                 <i id="e" class="fa fa-book fa-2x"></i>
                 <i id="f" class="fa fa-history fa-2x"></i>
                 <i id="g" class="fa fa-globe fa-2x"></i>
-                <i id="h" class="fa fa-black-tie fa-2x"></i>
+                <i id="h" class="fa fa-male fa-2x"></i>
         </span>
         </div>
 
@@ -34,7 +34,6 @@
 </div>
 <hr id="line">
 
-<br/>
 <h3 class="center_text">Choose Category</h3>
 <br/><br/>
 <h4 class="center_text">Book of Mormon</h4>
@@ -44,8 +43,13 @@
 <br/>
 <br/>
 
+<button class="btn btn-lg btn-success btn-block" id="spin_button" data-game_id="${game.id}" >Spin!</button>
+
 <button class="btn btn-lg btn-success btn-block" id="play_button" data-game_id="${game.id}" >Play!</button>
 
+<div id="outer_gauge" number-right="${game.number_right}">
+    <div id="gauge" class=""></div>
+</div>
 
 </%block>
 

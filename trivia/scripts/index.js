@@ -3,7 +3,7 @@ $(function() {
     History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
         var State = History.getState(); // Note: We are using History.getState() instead of event.state
         if (State){
-            $('.loader').show()
+            $('.loader').show();
             //$("#panel_contents").load(State.data.url);
             if(State.data.url != null){
                 $.ajax({

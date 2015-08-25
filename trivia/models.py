@@ -62,6 +62,7 @@ class Game(models.Model):
         return '%s - %s Round: %s My Turn: %s' % (self.id, self.player.first_name, self.current_round, self.my_turn)
 
 
+# Method get called when a user gets created
 def save_profile(backend, user, response, *args, **kwargs):
     import facebook
     if backend.name == 'facebook':
@@ -73,7 +74,8 @@ def save_profile(backend, user, response, *args, **kwargs):
             graph = facebook.GraphAPI(access_token=response['access_token'])
             # args = {'fields' : 'id,name,picture' }
             # auth = user.social_auth.first()
-            result = graph.get_object(response["id"]+"/picture?width=70")
+            result = graph.get_object(response["id"])
+            # result = graph.get_object(response["id"]+"/picture?width=70")
             # print(result)
             url = result['url']
             # print(url)

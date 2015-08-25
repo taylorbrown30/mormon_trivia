@@ -16,3 +16,8 @@ body {
 table{
     font-family: Tahoma, Geneva, sans-serif;
 }
+
+/*Disable iphone select*/
+*{
+	-webkit-user-select: none;
+}

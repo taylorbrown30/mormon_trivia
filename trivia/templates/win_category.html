@@ -6,19 +6,23 @@
 
 <div class="row">
     <div class="col-xs-6">
-        <button class="btn btn-lg btn-success btn-block category_button" id="${categories[0].id}" data-game_id="${game_id}"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> ${categories[0].name}</button>
+        <button class="btn btn-lg btn-success btn-block category_button" id="${categories[0].id}" data-game_id="${game.id}"><i id="a" class="fa fa-book fa-2x"></i> ${categories[0].name}</button>
     </div>
     <div class="col-xs-6">
-        <button class="btn btn-lg btn-success btn-block category_button" id="${categories[1].id}" data-game_id="${game_id}">${categories[1].name}</button>
+        <button class="btn btn-lg btn-success btn-block category_button" id="${categories[1].id}" data-game_id="${game.id}"><i id="b" class="fa fa-history fa-2x"></i> ${categories[1].name}</button>
     </div>
 </div>
 <div class="row">
     <div class="col-xs-6">
-        <button class="btn btn-lg btn-success btn-block category_button" id="${categories[2].id}" data-game_id="${game_id}">${categories[2].name}</button>
+        <button class="btn btn-lg btn-success btn-block category_button" id="${categories[2].id}" data-game_id="${game.id}"><i id="c" class="fa fa-male fa-2x"></i> ${categories[2].name}</button>
     </div>
     <div class="col-xs-6">
-        <button class="btn btn-lg btn-success btn-block category_button" id="${categories[3].id}" data-game_id="${game_id}">${categories[3].name}</button>
+        <button class="btn btn-lg btn-success btn-block category_button" id="${categories[3].id}" data-game_id="${game.id}"><i id="d" class="fa fa-globe fa-2x"></i> ${categories[3].name}</button>
     </div>
+</div>
+
+<div id="outer_gauge" number-right="${game.number_right}">
+    <div id="gauge" class=""></div>
 </div>
 
 
