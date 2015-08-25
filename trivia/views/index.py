@@ -132,7 +132,7 @@ def win_category(request):
     template_vars = {
         "categories": categories,
         "user": user,
-        "game_id":game.id,
+        "game":game,
     }
     return dmp_render_to_response(request, 'win_category.html', template_vars)
 
