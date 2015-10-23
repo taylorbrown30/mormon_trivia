@@ -26,7 +26,7 @@ def process_request(request):
     # c3.save()
 
     import csv
-    with open('trivia/media/questions.csv') as csvfile:
+    with open(settings.STATIC_ROOT + '/trivia/media/questions.csv') as csvfile:
         spamreader = csv.reader(csvfile)
         count = 0
         for row in spamreader:

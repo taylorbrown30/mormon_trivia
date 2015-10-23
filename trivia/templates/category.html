@@ -35,15 +35,38 @@
 <hr id="line">
 
 <h3 class="center_text">Choose Category</h3>
-<br/><br/>
-<h4 class="center_text">Book of Mormon</h4>
-<h4 class="center_text">Church History</h4>
-<h4 class="center_text">Mormon Culture</h4>
-<h4 class="center_text">Prophets</h4>
-<br/>
-<br/>
 
-<button class="btn btn-lg btn-success btn-block" id="spin_button" data-game_id="${game.id}" >Spin!</button>
+
+
+<link href='http://fonts.googleapis.com/css?family=Exo+2:900' rel='stylesheet' type='text/css'>
+
+<div id="wrapper">
+
+  <div id="wheel">
+    <div id="inner-wheel">
+      <div class="sec"><span class="fa fa-book"></span></div>
+      <div class="sec"><span class="fa fa-history"></span></div>
+      <div class="sec"><span class="fa fa-globe"></span></div>
+      <div class="sec"><span class="fa fa-male"></span></div>
+
+    </div>
+
+    <div id="spin">
+      <div id="inner-spin"></div>
+    </div>
+
+    <div id="shine"></div>
+  </div>
+
+
+  <div id="txt"></div>
+</div>
+
+
+<h2 class="center_text category_name" id="cat_1">Mormon Culture!</h2>
+<h2 class="center_text category_name" id="cat_2">Church History!</h2>
+<h2 class="center_text category_name" id="cat_3">Book of Mormon!</h2>
+<h2 class="center_text category_name" id="cat_4">Prophets!</h2>
 
 <button class="btn btn-lg btn-success btn-block" id="play_button" data-game_id="${game.id}" >Play!</button>
 

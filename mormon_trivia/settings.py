@@ -17,8 +17,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_ROOT = os.path.abspath(
     os.path.join(os.path.split(__file__)[0]))
 STATICFILES_ROOT = os.path.join(BASE_ROOT, 'static/')
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_ROOT, 'media/')
+
+
+# New Try
+BASE_DIR2 = os.path.dirname(os.path.dirname(__file__))
+STATIC_ROOT = os.path.join(BASE_DIR2, 'static')   # This is where collectstatic puts files
+
 
 
 # Quick-start development settings - unsuitable for production

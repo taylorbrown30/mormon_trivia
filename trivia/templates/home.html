@@ -56,13 +56,20 @@
 </div>
 %endif
 
-%if thir_turn:
+%if their_turn:
 <div class="panel panel-info">
     <div class="panel-heading">Their Turn</div>
     <table class="table table-hover">
         %for g in their_turn:
             <tr>
-                <td>${g.opponent_game.player.get_full_name()}<br/><p class="round_para">Round ${g.current_round}</p></td>
+                <td>
+                    <img src="${g.opponent_game.player.player.picture_url}" class="profile_pics">
+                    <div id="outside_name">
+                        <div class="name_div">${g.opponent_game.player.get_full_name()}</div>
+                    <div class="round_div">Round ${g.current_round}</div>
+                    </div>
+
+                </td>
                 <td class="score_td you_td">
                     <%
                         i = 0
@@ -102,7 +109,14 @@
     <table class="table table-hover">
         %for g in finished_games:
             <tr>
-                <td>${g.opponent_game.player.get_full_name()}<br/><p>Round ${g.current_round}</p></td>
+                <td>
+                    <img src="${g.opponent_game.player.player.picture_url}" class="profile_pics">
+                    <div id="outside_name">
+                        <div class="name_div">${g.opponent_game.player.get_full_name()}</div>
+                    <div class="round_div">Round ${g.current_round}</div>
+                    </div>
+
+                </td>
                 <td>
                     %if g.win_loss:
                         <p id="you_won">You Won!</p>
