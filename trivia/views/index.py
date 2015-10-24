@@ -10,16 +10,14 @@ import facebook
 @view_function
 def process_request(request):
 
-
     user = request.user
     if not user.is_authenticated():
         template_vars = {
             "user": user
         }
-        return dmp_render_to_response(request, 'index.html', template_vars)
-    # user = User.objects.get(username='TaylorBrown')
+        return dmp_render_to_response(request, 'login.html', template_vars)
+
     auth = user.social_auth.first()
-    # print(auth)
 
     graph = facebook.GraphAPI(access_token=auth.extra_data['access_token'])
 
@@ -36,8 +34,6 @@ def process_request(request):
 def home(request):
 
     user = request.user
-
-    print(user.player.picture_url)
     games = Game.objects.filter(player=user)
     finished_games = games.filter(finished=True)[:10]
     my_turn =  games.exclude(finished=True).filter(my_turn=True)[:10]
@@ -59,7 +55,6 @@ def home(request):
 def new_game(request):
 
     template_vars = {
-
     }
     return dmp_render_to_response(request, 'new_game.html', template_vars)
 
@@ -69,10 +64,18 @@ def create_game(request):
     user = request.user
     if not user.is_authenticated():
         HttpResponseRedirect("/trivia/index")
-    id= request.urlparams[0]
-    print(id)
-    opponent = User.objects.get(social_auth__uid=id)
 
+    id= request.urlparams[0]
+    id_number = user.id
+    if id:
+        opponent = User.objects.get(social_auth__uid=id)
+    else:
+        # make sure random doesn't pick yourself
+        while id_number == user.id:
+            count = User.objects.count()
+            random_index = randint(0, count - 1)
+            opponent = User.objects.all()[random_index]
+            id_number = opponent.id
 
     g = Game()
     g.player = user
@@ -97,15 +100,12 @@ def create_game(request):
 @view_function
 def category(request):
     user = request.user
-
-    game_id= request.urlparams[0]
-    print(game_id)
-
-
-    game = Game.objects.get(id=game_id)
+    game = Game.objects.get(id=request.urlparams[0])
     opponent_game= game.opponent_game
-    print("gasdhfladsfadsklsd", opponent_game)
     opponent = opponent_game.player
+
+    if game.finished or game.my_turn == False:
+        return HttpResponseRedirect("/trivia/index")
 
     if game.number_right ==3:
         print("Righttttttttttttttttttttttttttttttttttttttttt")
@@ -121,34 +121,30 @@ def category(request):
 @view_function
 def win_category(request):
     user = request.user
-
-    game_id= request.urlparams[0]
     categories = Category.objects.all()
+    game = Game.objects.get(id=request.urlparams[0])
 
-    game = Game.objects.get(id=game_id)
-    # game.number_right = 0
-    # game.save()
+    if game.finished or game.my_turn == False:
+        return HttpResponseRedirect("/trivia/index")
 
     template_vars = {
         "categories": categories,
         "user": user,
-        "game":game,
+        "game": game,
     }
     return dmp_render_to_response(request, 'win_category.html', template_vars)
 
 
-
 @view_function
 def question(request):
-    game_id = request.urlparams[0]
-    category_id = request.urlparams[1]
+    game = Game.objects.get(id=request.urlparams[0])
+    category = Category.objects.get(id=request.urlparams[1])
 
-    game = Game.objects.get(id=game_id)
-    category = Category.objects.get(id=category_id)
-    print(category.name, "___________________________")
+    if game.finished or game.my_turn == False:
+        return HttpResponseRedirect("/trivia/index")
 
     total = Question.objects.filter(category__name=category.name).count()
-    print(total)
+
     # TODO Try to find a question they haven't had before
     random = randint(0,total-1)
     questions = Question.objects.filter(category__name=category.name)
@@ -167,9 +163,7 @@ def question(request):
 def friends(request):
 
     from django.contrib.auth.models import User
-    import facebook
 
-    # user = User.objects.get(username='TaylorBrown')
     user = request.user
     auth = user.social_auth.first()
     print(auth)
@@ -178,20 +172,17 @@ def friends(request):
     graph = facebook.GraphAPI(access_token=auth.extra_data['access_token'])
     # graph = facebook.GraphAPI(access_token=joe_token)
 
-
-    # friends = graph.get_connections("me", "taggable_friends")
     args = {'fields' : 'id,name,picture' }
     friends = graph.get_object("me/friends", **args)
 
+    new_friends = []
+    for f in friends['data']:
+        print(f['id'])
+        if User.objects.filter(social_auth__uid=f['id']):
+            new_friends.append(f)
 
-    # friends = graph.get_connections(id='me', connection_name='friends')
-    print(friends)
-    # graph.put_object('me', 'feed', message=status.message)
-    # status.publish_timestamp = datetime.datetime.now()
-    # status.save()
     template_vars = {
-        'friends': friends,
-
+        'friends': new_friends,
     }
     return dmp_render_to_response(request, 'friends.html', template_vars)
 

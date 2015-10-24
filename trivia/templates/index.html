@@ -10,7 +10,7 @@
 
             <div class="dropdown top_bar_item_right top_bar_text">
                 <a id="name_link" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">${ user.first_name} <span class="caret"></span></a>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu dropdown-menu-right" id="account_dropdown">
                     <li></li>
                     <li><a href="#">Help</a></li>
                     <li><a href="#">Account</a></li>
@@ -23,7 +23,12 @@
 
             %else:
 
-            <p class="top_bar_item_right top_bar_text"><a href="/login/facebook/?next=${ request.path }">Login with Facebook</a></p>
+            <p class="top_bar_item_right top_bar_text">
+                <a href="/login/facebook/?next=${ request.path }" class="btn btn-block btn-social btn-facebook">
+                  <i class="fa fa-facebook"></i>
+                    Sign in with Facebook
+                </a>
+            </p>
 
             %endif
     </div>

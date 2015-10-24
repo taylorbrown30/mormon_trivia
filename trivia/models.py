@@ -72,30 +72,17 @@ def save_profile(backend, user, response, *args, **kwargs):
             p= user.player
         except AttributeError:
             graph = facebook.GraphAPI(access_token=response['access_token'])
-            # args = {'fields' : 'id,name,picture' }
-            # auth = user.social_auth.first()
-            result = graph.get_object(response["id"])
-            # result = graph.get_object(response["id"]+"/picture?width=70")
-            # print(result)
-            url = result['url']
-            # print(url)
+
+            args = {'fields' : 'id,name,picture' }
+
+            result = graph.get_object(response["id"], **args)
+
+            url = result['picture']['data']['url']
+
             p = Player()
             p.picture_url = url
             p.user = user
             p.save()
-
-        # print(user.player.picture_url)
-        # user.save()
-
-        #
-        # profile = user.get_profile()
-        # if profile is None:
-        #     profile = Profile(user_id=user.id)
-        # profile.gender = response.get('gender')
-        # profile.link = response.get('link')
-        # profile.timezone = response.get('timezone')
-        # profile.save()
-
 
 from django.contrib import admin
 

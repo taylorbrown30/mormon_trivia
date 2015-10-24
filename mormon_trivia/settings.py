@@ -60,7 +60,6 @@ INSTALLED_APPS = (
     'django_mako_plus.controller',
     'social.apps.django_app.default',
     'trivia',
-    'django_test_app'
     # 'django_facebook',
 )
 

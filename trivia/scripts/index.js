@@ -9,7 +9,7 @@ $(function() {
                 $.ajax({
                     url: State.data.url ,
                     success: function (result) {
-                        $('.loader').hide()
+                        $('.loader').hide();
                         $("#panel_contents").html(result)
                     }
                 });
@@ -24,11 +24,11 @@ $(function() {
         //History.log(State.data, State.title, State.url);
     });
     //Once page loads
-    $('.loader').show()
+    $('.loader').show();
     $.ajax({
         url: "trivia/index.home" ,
         success: function (result) {
-            $('.loader').hide()
+            $('.loader').hide();
             $("#panel_contents").html(result);
             History.pushState({url:"index.home"}, "", "");
 

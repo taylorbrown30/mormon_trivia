@@ -6,7 +6,7 @@
 <div class="panel panel-success">
     <div class="panel-heading">Choose a friend</div>
     <table class="table table-hover" id="friends_table">
-        %for f in friends['data']:
+        %for f in friends:
         <tr>
             <td id="name_td"><img src="${f['picture']['data']['url']}" class="profile_pics"><div id="name_p">${f['name']}</div></td>
             <td id="button_td"><button  class="btn btn-success play_friend_button" id="${f['id']}" >Play!</button></td>
